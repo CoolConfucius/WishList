@@ -61,6 +61,24 @@ function sortName(e){
   });
 }
 
+function sortCategory(e){
+  var az = (e.shiftKey) ? "/sortcategory/-1" : "/sortcategory/1"
+  $.get(az, function(data) {
+    location.replace(az);
+  });
+}
+
+function sortDate(e){
+  var az = (e.shiftKey) ? "/sortdate/-1" : "/sortdate/1"
+  $.get(az, function(data) {
+    location.replace(az);
+  });
+}
+
+function sort(e){
+  var num = (e.shiftKey)
+}
+
 // function sortDate(e){
 //   var d = (e.shiftKey) ? "/todos/sort/r" : "/todos/sort/d"
 //   $.get(d, function(data) {

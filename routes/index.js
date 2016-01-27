@@ -60,8 +60,26 @@ router.get('/sortname/:num', function(req, res, next) {
     if (err) {
       return res.status(400).send(err);
     };
-    res.render('index', { title: 'Product Wish List', products: products});
+    res.render('index', { title: 'Product Wish List', products: products, subTitle: "Sorting by Name"});
   }).sort( { name: parseInt(req.params.num) } );
+});
+
+router.get('/sortcategory/:num', function(req, res, next) {
+  Product.find({}, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { title: 'Product Wish List', products: products, subTitle: "Sorting by Category"});
+  }).sort( { category: parseInt(req.params.num) } );
+});
+
+router.get('/sortdate/:num', function(req, res, next) {
+  Product.find({}, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { title: 'Product Wish List', products: products, subTitle: "Sorting by Date Added"});
+  }).sort( { date: parseInt(req.params.num) } );
 });
 
 
