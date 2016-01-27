@@ -57,7 +57,12 @@ router.delete('/:productId', function(req, res) {
 // editing a product
 router.put('/:productId', function(req, res) {
   Product.findById(req.params.productId, function(err, product) {   
-    product = req.body; 
+    product.name = req.body.name;
+    product.description = req.body.description;
+    product.price = req.body.price;
+    product.addedAt = req.body.addedAt;
+    product.imageurl = req.body.imageurl;
+    product.category = req.body.category;
     product.save(function(err, savedProduct) {
       res.status(err ? 400 : 200).send(err || savedProduct); 
     });

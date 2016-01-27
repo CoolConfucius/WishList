@@ -47,7 +47,7 @@ function edit(){
   }
   })
   .success(function(data) {
-    location.replace('/products');
+    location.replace('/');
   })
   .fail(function(err) {
     alert('Error. Check console.');
