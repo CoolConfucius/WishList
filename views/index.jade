@@ -11,12 +11,12 @@ block content
         th Name
         th Description
         th Price
-    tbody#contactList
-      each contact in contacts
+    tbody#productList
+      each product in products
         tr
-          td= contact.name
-          td= contact.description
-          td= contact.price
+          td= product.name
+          td= product.description
+          td= product.price
           
 block scripts
   //- script(src='/js/productIndex.js')

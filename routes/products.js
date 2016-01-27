@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
   console.log('req.query:', req.query);
   Product.find(req.query, function(err, products) {
     res.status(err ? 400 : 200).send(err || products); 
+    res.render('index', { title: 'Product List', products: products})
   });
 });
 
