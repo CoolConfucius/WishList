@@ -1,5 +1,24 @@
 extends layout
 
 block content
+  .container
   h1= title
-  p Welcome to #{title}
+  a.btn.btn-primary(href='/addProduct') Add Product
+  
+  table.table.table-hover
+    thead
+      tr
+        th Name
+        th Description
+        th Price
+    tbody#contactList
+      each contact in contacts
+        tr
+          td= contact.name
+          td= contact.description
+          td= contact.price
+          
+block scripts
+  //- script(src='/js/productIndex.js')
+  script(src='/js/main.js')
+

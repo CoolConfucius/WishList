@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .container
+  h1= title
+  .form-group
+    label(for='name') Name
+    input#name.form-control(type="text", placeholder="Name")
+  .form-group  
+    label(for='description') Description
+    input#description.form-control(type="text", placeholder="Description")
+  .form-group  
+    label(for='price') Price
+    input#price.form-control(type="number", placeholder="Price")
+  
+  .form-group  
+    label(for='addedAt') addedAt
+    input#addedAt.form-control(type="date")
+  .form-group  
+    label(for='imageurl') ImageUrl
+    input#imageurl.form-control(type="text", placeholder="ImageUrl")
+  .form-group  
+    label(for='category') Category
+    input#category.form-control(type="text", placeholder="Category")
+
+  button.btn.btn-success#add(type='submit') Add
+  a.btn.btn-danger(href='/') Cancel
+
+block scripts
+  script(src='/js/addProduct.js')

@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  .container
+  h1= title
+  .jumbotron.text-center
+    h1= "Name: " + product.name
+  h2= "Description: " + product.description
+  h2= "Price: " + product.price
+  h2= "Added at: " + product.addedAt
+  h2= "ImageUrl: " + product.imageurl  
+  h2= "Category: " + product.category  
+  
+  a.btn.btn-primary(href='/') Back
+  button.btn.btn-danger#remove(data-index=index) Remove Product
+  hr
+  hr
+  hr
+
+  h3 Edit Product:
+  .form-group
+    label(for='name') Name
+    input#name.form-control(type="text", value=product.name)
+  .form-group  
+    label(for='description') Description
+    input#description.form-control(type="text", value=product.description)
+  .form-group  
+    label(for='price') Price
+    input#price.form-control(type="number", value=product.price)
+  
+  .form-group  
+    label(for='addedAt') Added at
+    input#addedAt.form-control(type="date", value=product.addedAt)
+  .form-group  
+    label(for='imageurl') ImageUrl
+    input#imageurl.form-control(type="text", value=product.imageurl)
+  .form-group  
+    label(for='category') Category
+    input#category.form-control(type="text", value=product.category)
+  
+  a.btn.btn-primary(href='/') Back
+  button.btn.btn-warning#edit(data-index=index) Confirm Edit
+
+  
+block scripts
+  script(src='/js/showpage.js')
+
