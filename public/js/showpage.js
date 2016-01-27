@@ -16,9 +16,9 @@ function init() {
 }
 
 function remove(){
-  var index = $(this).data('index');
+  var id = $(this).data('id').replace(/\"/g, "");
   $.ajax({
-    url: "/products/"+index,
+    url: "/products/"+id,
     method: "DELETE"
   })
   .success(function(data) {
@@ -31,7 +31,7 @@ function remove(){
 }
 
 function edit(){
-  var index = $(this).data('index');
+  var id = $(this).data('id').replace(/\"/g, "");
   var name = $name.val();
   var description = $description.val();
   var price = $price.val();
@@ -39,7 +39,7 @@ function edit(){
   var imageurl = $imageurl.val();
   var category = $category.val();
   $.ajax({
-    url: "/products/"+index,
+    url: "/products/"+id,
     method: "PUT",
     data: {
     name: name, description: description, price: price,
