@@ -3,29 +3,40 @@ var router = express.Router();
 
 var Product = require('../models/product');
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.redirect('/products');
-//   res.render('index', { title: 'Express' });
-// });
-
-// router.get('/', function(req, res, next) {
-//   res.redirect('/products');
-//   // Product.find({}, function(err, products) {
-//   //   // console.log(products, 'PRODUCS');
-//   //   res.status(err ? 400 : 200); if (err) {res.send(err)};
-//   //   res.render('index', { title: 'Product List', products: products});
-//   // });
-// });
-
-
 router.get('/', function(req, res, next) {
+  // console.log('req.query:', req.query);
   Product.find({}, function(err, products) {
+  // Product.find(req.query, function(err, products) {
     if (err) {
       return res.status(400).send(err);
     };
-    console.log("Products", products);
-    res.render('index', { title: 'Product List', products: products});
+    res.render('index', { title: 'Product Wish List', products: products});
   });
 });
+
+// Filters: 
+router.get('/name/:name', function(req, res, next) {
+  console.log("name Filter!");
+  Product.find({ name: req.params.name }, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { title: 'Product Wish List', products: products});
+  });
+});
+
+
+router.get('/category/:category', function(req, res, next) {
+  // console.log('req.query:', req.query);
+  Product.find({}, function(err, products) {
+  // Product.find(req.query, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { title: 'Product Wish List', products: products});
+  });
+});
+
+
+
 module.exports = router;

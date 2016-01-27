@@ -5,6 +5,7 @@ $(document).ready(init);
 function init() {
   total(); 
   $('#productList').on('click', 'tr', show);
+  $('#nameGo').click(nameFilter); 
 }
 
 function show(){
@@ -22,4 +23,14 @@ function total(){
     if (add) { sum += add; };
   });
   $('#total').text('$'+sum.toFixed(2));
+}
+
+
+function nameFilter(){
+  console.log("nameFilter");
+  var name = $('#name').val(); 
+  console.log(name, "name");
+  $.get('/name/'+name, function(req, res, next){
+    location.replace('/name/'+name);
+  })
 }

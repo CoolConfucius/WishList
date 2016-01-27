@@ -23,8 +23,13 @@ block content
           td.price= '$'+parseFloat(product.price).toFixed(2)
   span Grand Total: 
   span#total
+  hr
+  label(for='name') Filter by name
+  input#name.form-control(type="text", placeholder="Name")
+  button.btn.btn-warning#nameGo Go
+  hr
+  a.btn.btn-success(href='/') Show All
 
 block scripts
   script(src='/js/main.js')
-  //- script(src='/js/productIndex.js')
 
