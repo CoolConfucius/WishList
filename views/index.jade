@@ -42,10 +42,12 @@ block content
   
   hr
   span Hold shift and click to reverse the sort order
-  hr
-  button.btn.btn-danger.sort#sortname Sort by name
-  button.btn.btn-danger.sort#sortcategory Sort by category
-  button.btn.btn-danger.sort#sortdate Sort by date
+  .sortdiv.row
+    .col-xs-2 Sort by:
+    button.btn.btn-primary.sort#sortname name
+    button.btn.btn-info.sort#sortcategory category
+    button.btn.btn-danger.sort#sortadded added
+    button.btn.btn-danger.sort#sortpurchase purchase
 
   hr
   a.btn.btn-success(href='/') Show All

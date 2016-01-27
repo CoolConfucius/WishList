@@ -8,7 +8,7 @@ block content
   h2= "Description: " + product.description
   h2= "Price: " + '$'+parseFloat(product.price).toFixed(2)
   h2= "Added at: " + product.addedAt
-  //- h2= "ImageUrl: " + product.imageurl  
+  h2= "Purchase by: " + product.purchaseBy
   h2= "Category: " + product.category  
   h2 Image:
   img(src=product.imageurl, alt="")
@@ -31,8 +31,8 @@ block content
     input#price.form-control(type="number", value=product.price, min="0.00", step="0.01")
   
   .form-group  
-    label(for='addedAt') Added at
-    input#addedAt.form-control(type="date", value=product.addedAt)
+    label(for='purchaseBy') Purchase by
+    input#purchaseBy.form-control(type="date", value=product.purchaseBy)
   .form-group  
     label(for='imageurl') ImageUrl
     input#imageurl.form-control(type="text", value=product.imageurl)

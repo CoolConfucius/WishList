@@ -2,13 +2,13 @@
 
 $(document).ready(init); 
 
-var $name, $description, $price, $addedAt, $imageurl, $category, $add;
+var $name, $description, $price, $purchaseBy, $imageurl, $category, $add;
 
 function init() {
   $name = $('#name'); 
   $description = $('#description'); 
   $price = $('#price'); 
-  $addedAt = $('#addedAt'); 
+  $purchaseBy = $('#purchaseBy'); 
   $imageurl = $('#imageurl'); 
   $category = $('#category'); 
   $add = $('#add'); 
@@ -21,14 +21,14 @@ function addProduct() {
   var name = $name.val();
   var description = $description.val();
   var price = $price.val();
-  var addedAt = $addedAt.val();
+  var purchaseBy = $purchaseBy.val();
   var imageurl = $imageurl.val();
   var category = $category.val();
   console.log(name, description);
   // debugger; 
   $.post('/products', {
     name: name, description: description, price: price,
-    addedAt: addedAt, imageurl: imageurl, category: category
+    purchaseBy: purchaseBy, imageurl: imageurl, category: category
   })
   .success(function(data) {
     location.replace('/');

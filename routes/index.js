@@ -91,7 +91,7 @@ router.get('/sortcategory/:num', function(req, res, next) {
   }).sort( { category: parseInt(req.params.num) } );
 });
 
-router.get('/sortdate/:num', function(req, res, next) {
+router.get('/sortadded/:num', function(req, res, next) {
   Product.find({}, function(err, products) {
     if (err) {
       return res.status(400).send(err);
@@ -101,6 +101,18 @@ router.get('/sortdate/:num', function(req, res, next) {
       products: products, 
       subTitle: "Sorting by Date Added"});
   }).sort( { addedAt: parseInt(req.params.num) } );
+});
+
+router.get('/sortpurchase/:num', function(req, res, next) {
+  Product.find({}, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { 
+      title: 'Product Wish List', 
+      products: products, 
+      subTitle: "Sorting by Date to Purchase by"});
+  }).sort( { purchaseBy: parseInt(req.params.num) } );
 });
 
 
