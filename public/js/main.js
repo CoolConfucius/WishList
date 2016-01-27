@@ -6,6 +6,7 @@ function init() {
   total(); 
   $('#productList').on('click', 'tr', show);
   $('#nameGo').click(nameFilter); 
+  $('#categoryGo').click(categoryFilter); 
 }
 
 function show(){
@@ -25,12 +26,16 @@ function total(){
   $('#total').text('$'+sum.toFixed(2));
 }
 
-
 function nameFilter(){
-  console.log("nameFilter");
   var name = $('#name').val(); 
-  console.log(name, "name");
   $.get('/name/'+name, function(req, res, next){
     location.replace('/name/'+name);
+  })
+}
+
+function categoryFilter(){
+  var category = $('#category').val(); 
+  $.get('/category/'+category, function(req, res, next){
+    location.replace('/category/'+category);
   })
 }

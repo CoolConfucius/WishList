@@ -5,21 +5,6 @@ var router = express.Router();
 
 var Product = require('../models/product');
 
-// get multiple products
-// router.get('/', function(req, res, next) {
-//   // console.log('req.query:', req.query);
-//   // Product.find(req.query, function(err, products) {
-//   Product.find({}, function(err, products) {
-//     // console.log(products, 'PRODUCS');
-//     if (err) {
-//       return res.status(400).send(err);
-//     };
-//     // res.status(err ? 400 : 200); if (err) {res.send(err)};
-//     console.log("Products", products);
-//     res.render('index', { title: 'Product List', products: products});
-//   });
-// });
-
 // get add product form
 router.get('/addProduct', function(req, res, next) {
   res.render('addProduct', { title: 'Add Product' });

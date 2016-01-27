@@ -27,9 +27,7 @@ router.get('/name/:name', function(req, res, next) {
 
 
 router.get('/category/:category', function(req, res, next) {
-  // console.log('req.query:', req.query);
-  Product.find({}, function(err, products) {
-  // Product.find(req.query, function(err, products) {
+  Product.find({ category: req.params.category }, function(err, products) {
     if (err) {
       return res.status(400).send(err);
     };
