@@ -10,6 +10,6 @@ var productSchema = mongoose.Schema({
   isPurchased: { type: Boolean , default: false }
 });
 
-var Product = mongoose.model('Todo', productSchema); 
+var Product = mongoose.model('Product', productSchema); 
 
 module.exports = Product; 

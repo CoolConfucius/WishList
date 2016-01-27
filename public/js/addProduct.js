@@ -17,6 +17,7 @@ function init() {
 }
 
 function addProduct() {
+  console.log("addProduct");
   var name = $name.val();
   var description = $description.val();
   var price = $price.val();

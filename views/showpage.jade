@@ -12,7 +12,7 @@ block content
   h2= "Category: " + product.category  
   
   a.btn.btn-primary(href='/') Back
-  button.btn.btn-danger#remove(data-index=index) Remove Product
+  button.btn.btn-danger#remove(data-id=id) Remove Product
   hr
   hr
   hr
@@ -39,7 +39,7 @@ block content
     input#category.form-control(type="text", value=product.category)
   
   a.btn.btn-primary(href='/') Back
-  button.btn.btn-warning#edit(data-index=index) Confirm Edit
+  button.btn.btn-warning#edit(data-id=id) Confirm Edit
 
   
 block scripts

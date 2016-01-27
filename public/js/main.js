@@ -7,8 +7,8 @@ function init() {
 }
 
 function show(){
-  var index = $(this).index(); 
-  $.get('/products/'+index, function(req, res, next){
-    location.replace('/products/'+index); 
+  var id = $(this).data('id').toString(); 
+  $.get('/products/'+id, function(req, res, next){
+    location.replace('/products/'+id); 
   });
 }

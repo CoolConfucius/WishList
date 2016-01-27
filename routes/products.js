@@ -9,6 +9,7 @@ var Product = require('../models/product');
 router.get('/', function(req, res, next) {
   console.log('req.query:', req.query);
   Product.find(req.query, function(err, products) {
+    // console.log(products, 'PRODUCS');
     res.status(err ? 400 : 200); if (err) {res.send(err)};
     res.render('index', { title: 'Product List', products: products});
   });
@@ -23,6 +24,7 @@ router.get('/addProduct', function(req, res, next) {
 router.get('/:productId', function(req, res, next) {
   Product.findById(req.params.productId, function(err, product) {
     res.status(err ? 400 : 200); if (err) {res.send(err)};
+    console.log(product, "product");
     res.render('showpage', {product: product, id: req.params.productId}); 
   });
 });
