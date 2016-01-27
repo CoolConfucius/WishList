@@ -7,11 +7,10 @@ block content
     h1= "Name: " + product.name
   h2= "Description: " + product.description
   h2= "Price: " + '$'+parseFloat(product.price).toFixed(2)
-  h2= "Added at: " + product.addedAt
+  h3= "Added at: " + product.addedAt
   h2= "Purchase by: " + product.purchaseBy
   h2= "Category: " + product.category  
-  h2 Image:
-  img(src=product.imageurl, alt="")
+  img(src=product.imageurl, alt=product.imageurl)
   hr
   a.btn.btn-primary(href='/') Back
   button.btn.btn-danger#remove(data-id=id) Remove Product

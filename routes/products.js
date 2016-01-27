@@ -45,7 +45,7 @@ router.put('/:productId', function(req, res) {
     product.name = req.body.name;
     product.description = req.body.description;
     product.price = req.body.price;
-    product.addedAt = req.body.addedAt;
+    product.purchaseBy = req.body.purchaseBy;
     product.imageurl = req.body.imageurl;
     product.category = req.body.category;
     product.save(function(err, savedProduct) {
@@ -53,5 +53,13 @@ router.put('/:productId', function(req, res) {
     });
   });
 });
+
+// remove all
+router.delete('/', function(req, res) {
+  Product.remove({}, function(err, product) {
+    res.status(err ? 400 : 200).send(err || product);
+  });
+});
+
 
 module.exports = router;

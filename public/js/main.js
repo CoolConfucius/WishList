@@ -9,8 +9,8 @@ function init() {
   $('#categoryGo').click(categoryFilter); 
   $('.priceGo').click(priceFilter); 
 
-  // $('#sortName').click(sortName); 
   $('.sort').click(sort); 
+  $('#removeAll').click(removeAll);
 }
 
 function show(){
@@ -66,3 +66,16 @@ function sort(e){
 
 
 
+function removeAll(){
+  $.ajax({
+    url: "/products",
+    method: "DELETE"
+  })
+  .success(function(data) {
+    location.replace('/');
+  })
+  .fail(function(err) {
+    alert('Error. Check console.');
+    console.error("Error:", err);
+  });;
+}

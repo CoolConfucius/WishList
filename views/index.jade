@@ -13,18 +13,14 @@ block content
         th Description
         th Category
         th Price
-    tbody#productList
-      script
-        //- console.log(products, "products");
+    tbody#productList      
       each product in products
-        script
-          //- console.log(product);
         tr(data-id=product._id)
           td= product.name
           td= product.description
           td= product.category
           td.price= '$'+parseFloat(product.price).toFixed(2)
-  span Grand Total: 
+  span Total: 
   span#total
   hr
   .row
@@ -54,6 +50,7 @@ block content
 
   hr
   a.btn.btn-success(href='/') Show All
+  button.btn.btn-danger#removeAll Remove All
 
 block scripts
   script(src='/js/main.js')
