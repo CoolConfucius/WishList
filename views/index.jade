@@ -20,8 +20,10 @@ block content
         tr(data-id=product._id)
           td= product.name
           td= product.description
-          td= product.price
-          
+          td.price= product.price
+  span Grand Total: 
+  span#total
+
 block scripts
   script(src='/js/main.js')
   //- script(src='/js/productIndex.js')

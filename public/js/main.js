@@ -3,7 +3,8 @@
 $(document).ready(init); 
 
 function init() {
-  $('#productList').on('click', 'tr', show)
+  total(); 
+  $('#productList').on('click', 'tr', show);
 }
 
 function show(){
@@ -12,4 +13,15 @@ function show(){
   $.get(`/products/${id}`, function(req, res, next){
     location.replace('/products/'+id); 
   });
+}
+
+function total(){
+  var sum = 0; 
+  $(".price").each(function(index){
+    console.log( parseFloat( $(this).text() ));
+    var add = parseFloat($(this).text() );
+    if (add) { sum += add; };
+    
+  });
+  $('#total').text(sum);
 }
