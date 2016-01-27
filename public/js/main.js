@@ -33,6 +33,7 @@ function total(){
 // Filters 
 function nameFilter(){
   var name = $('#name').val(); 
+  if (!name) { return; };
   $.get('/name/'+name, function(req, res, next){
     location.replace('/name/'+name);
   })
@@ -40,6 +41,7 @@ function nameFilter(){
 
 function categoryFilter(){
   var category = $('#category').val(); 
+  if (!category) { return; };
   $.get('/category/'+category, function(req, res, next){
     location.replace('/category/'+category);
   })
@@ -47,6 +49,7 @@ function categoryFilter(){
 
 function priceFilter(){
   var price = $('#price').val(); 
+  if (!price) { return; };
   var compare = $(this).attr('id');
   $.get('/'+compare+'/'+price, function(req, res, next){
     location.replace('/'+compare+'/'+price);
