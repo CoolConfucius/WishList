@@ -6,11 +6,13 @@ block content
   .jumbotron.text-center
     h1= "Name: " + product.name
   h2= "Description: " + product.description
-  h2= "Price: " + product.price
+  h2= "Price: " + '$'+parseFloat(product.price).toFixed(2)
   h2= "Added at: " + product.addedAt
-  h2= "ImageUrl: " + product.imageurl  
+  //- h2= "ImageUrl: " + product.imageurl  
   h2= "Category: " + product.category  
-  
+  h2 Image:
+  img(src=product.imageurl, alt="")
+  hr
   a.btn.btn-primary(href='/') Back
   button.btn.btn-danger#remove(data-id=id) Remove Product
   hr
@@ -26,7 +28,7 @@ block content
     input#description.form-control(type="text", value=product.description)
   .form-group  
     label(for='price') Price
-    input#price.form-control(type="number", value=product.price)
+    input#price.form-control(type="number", value=product.price, min="0.00", step="0.01")
   
   .form-group  
     label(for='addedAt') Added at

@@ -7,7 +7,7 @@ var productSchema = mongoose.Schema({
   description: { type: String}, 
   price: { type: Number }, 
   addedAt: { type: Date, default: Date.now() },
-  imageUrl: { type: String },
+  imageurl: { type: String },
   category: { type: String },
   hasPurchased: { type: Boolean , default: false }
 });
