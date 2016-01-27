@@ -9,8 +9,7 @@ var productSchema = mongoose.Schema({
   addedAt: { type: Date, default: Date.now() },
   purchaseBy: { type: Date },
   imageurl: { type: String },
-  category: { type: String },
-  hasPurchased: { type: Boolean , default: false }
+  category: { type: String }
 });
 
 var Product = mongoose.model('Product', productSchema); 

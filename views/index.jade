@@ -11,6 +11,7 @@ block content
       tr
         th Name
         th Description
+        th Category
         th Price
     tbody#productList
       script
@@ -21,6 +22,7 @@ block content
         tr(data-id=product._id)
           td= product.name
           td= product.description
+          td= product.category
           td.price= '$'+parseFloat(product.price).toFixed(2)
   span Grand Total: 
   span#total
@@ -29,7 +31,7 @@ block content
     .form-group.col-sm-4.col-xs-8
       label(for='name') Filter by name
       input#name.form-control(type="text", placeholder="Name")
-      button.btn.btn-warning#nameGo Go
+      button.btn.btn-info#nameGo Go
     .form-group.col-sm-4.col-xs-8
       label(for='category') Filter by category
       input#category.form-control(type="text", placeholder="Category")
@@ -42,12 +44,13 @@ block content
   
   hr
   span Hold shift and click to reverse the sort order
+  hr
   .sortdiv.row
     .col-xs-2 Sort by:
     button.btn.btn-primary.sort#sortname name
-    button.btn.btn-info.sort#sortcategory category
-    button.btn.btn-danger.sort#sortadded added
-    button.btn.btn-danger.sort#sortpurchase purchase
+    button.btn.btn-warning.sort#sortcategory category
+    button.btn.btn-success.sort#sortpurchase purchase by
+    button.btn.btn-danger.sort#sortadded added at
 
   hr
   a.btn.btn-success(href='/') Show All
