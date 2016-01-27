@@ -12,7 +12,11 @@ block content
         th Description
         th Price
     tbody#productList
+      script
+        //- console.log(products, "products");
       each product in products
+        script
+          //- console.log(product);
         tr(data-id=product._id)
           td= product.name
           td= product.description

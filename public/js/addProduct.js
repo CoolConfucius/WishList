@@ -24,12 +24,14 @@ function addProduct() {
   var addedAt = $addedAt.val();
   var imageurl = $imageurl.val();
   var category = $category.val();
+  console.log(name, description);
+  // debugger; 
   $.post('/products', {
     name: name, description: description, price: price,
     addedAt: addedAt, imageurl: imageurl, category: category
   })
   .success(function(data) {
-    location.replace('/products');
+    location.replace('/');
   })
   .fail(function(err) {
     alert('Error. Check console.');

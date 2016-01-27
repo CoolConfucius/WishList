@@ -7,8 +7,9 @@ function init() {
 }
 
 function show(){
-  var id = $(this).data('id').toString(); 
-  $.get('/products/'+id, function(req, res, next){
+  var id = $(this).data('id').replace(/\"/g, ""); 
+  console.log(id);
+  $.get(`/products/${id}`, function(req, res, next){
     location.replace('/products/'+id); 
   });
 }

@@ -6,14 +6,19 @@ var router = express.Router();
 var Product = require('../models/product');
 
 // get multiple products
-router.get('/', function(req, res, next) {
-  console.log('req.query:', req.query);
-  Product.find(req.query, function(err, products) {
-    // console.log(products, 'PRODUCS');
-    res.status(err ? 400 : 200); if (err) {res.send(err)};
-    res.render('index', { title: 'Product List', products: products});
-  });
-});
+// router.get('/', function(req, res, next) {
+//   // console.log('req.query:', req.query);
+//   // Product.find(req.query, function(err, products) {
+//   Product.find({}, function(err, products) {
+//     // console.log(products, 'PRODUCS');
+//     if (err) {
+//       return res.status(400).send(err);
+//     };
+//     // res.status(err ? 400 : 200); if (err) {res.send(err)};
+//     console.log("Products", products);
+//     res.render('index', { title: 'Product List', products: products});
+//   });
+// });
 
 // get add product form
 router.get('/addProduct', function(req, res, next) {
@@ -23,7 +28,9 @@ router.get('/addProduct', function(req, res, next) {
 // get one product
 router.get('/:productId', function(req, res, next) {
   Product.findById(req.params.productId, function(err, product) {
-    res.status(err ? 400 : 200); if (err) {res.send(err)};
+    if (err) {
+      return res.status(400).send(err);
+    };
     console.log(product, "product");
     res.render('showpage', {product: product, id: req.params.productId}); 
   });
@@ -31,9 +38,10 @@ router.get('/:productId', function(req, res, next) {
 
 // create a new product
 router.post('/', function(req, res) {
+  console.log("reqbody", req.body);
   var product = new Product(req.body); 
   product.save(function(err, savedProduct) {
-    res.status(err ? 400 : 200); if (err) {res.send(err)};
+    res.status(err ? 400 : 200).send(err || savedProduct);
   });
 });
 
