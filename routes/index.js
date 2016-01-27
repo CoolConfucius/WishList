@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
       return res.status(400).send(err);
     };
     res.render('index', { title: 'Product Wish List', products: products});
-  }).sort( { addedAt: 1 } );
+  });
 });
 
 // Filters: 
@@ -79,7 +79,7 @@ router.get('/sortdate/:num', function(req, res, next) {
       return res.status(400).send(err);
     };
     res.render('index', { title: 'Product Wish List', products: products, subTitle: "Sorting by Date Added"});
-  }).sort( { date: parseInt(req.params.num) } );
+  }).sort( { addedAt: parseInt(req.params.num) } );
 });
 
 

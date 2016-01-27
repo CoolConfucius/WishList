@@ -9,7 +9,8 @@ function init() {
   $('#categoryGo').click(categoryFilter); 
   $('.priceGo').click(priceFilter); 
 
-  $('#sortName').click(sortName); 
+  // $('#sortName').click(sortName); 
+  $('.sort').click(sort); 
 }
 
 function show(){
@@ -53,38 +54,15 @@ function priceFilter(){
 }
 
 
-// Sorts
-function sortName(e){
-  var az = (e.shiftKey) ? "/sortname/-1" : "/sortname/1"
-  $.get(az, function(data) {
-    location.replace(az);
-  });
-}
-
-function sortCategory(e){
-  var az = (e.shiftKey) ? "/sortcategory/-1" : "/sortcategory/1"
-  $.get(az, function(data) {
-    location.replace(az);
-  });
-}
-
-function sortDate(e){
-  var az = (e.shiftKey) ? "/sortdate/-1" : "/sortdate/1"
-  $.get(az, function(data) {
-    location.replace(az);
-  });
-}
-
+// Sorting
 function sort(e){
-  var num = (e.shiftKey)
+  var num = (e.shiftKey) ? "/-1" : "/1";
+  var str = $(this).attr('id').toLowerCase(); 
+  var send = '/' + str + num; 
+  $.get(send, function(data) {
+    location.replace(send);
+  });
 }
-
-// function sortDate(e){
-//   var d = (e.shiftKey) ? "/todos/sort/r" : "/todos/sort/d"
-//   $.get(d, function(data) {
-//     showAll(); 
-//   });
-// }
 
 
 
