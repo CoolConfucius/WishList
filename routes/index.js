@@ -21,7 +21,10 @@ router.get('/name/:name', function(req, res, next) {
     if (err) {
       return res.status(400).send(err);
     };
-    res.render('index', { title: 'Product Wish List', products: products});
+    res.render('index', { 
+      title: 'Product Wish List', 
+      products: products, 
+      subTitle: "Showing name: "+req.params.name});
   });
 });
 
@@ -31,7 +34,10 @@ router.get('/category/:category', function(req, res, next) {
     if (err) {
       return res.status(400).send(err);
     };
-    res.render('index', { title: 'Product Wish List', products: products});
+    res.render('index', { 
+      title: 'Product Wish List', 
+      products: products, 
+      subTitle: "Showing category: "+req.params.category});
   });
 });
 
@@ -40,7 +46,10 @@ router.get('/gt/:price', function(req, res, next) {
     if (err) {
       return res.status(400).send(err);
     };
-    res.render('index', { title: 'Product Wish List', products: products});
+    res.render('index', { 
+      title: 'Product Wish List', 
+      products: products, 
+      subTitle: "Showing prices greater than: $"+parseFloat(req.params.price).toFixed(2)});
   });
 });
 
@@ -49,7 +58,10 @@ router.get('/lt/:price', function(req, res, next) {
     if (err) {
       return res.status(400).send(err);
     };
-    res.render('index', { title: 'Product Wish List', products: products});
+    res.render('index', { 
+      title: 'Product Wish List', 
+      products: products, 
+      subTitle: "Showing prices less than: $"+parseFloat(req.params.price).toFixed(2)});
   });
 });
 
@@ -60,7 +72,10 @@ router.get('/sortname/:num', function(req, res, next) {
     if (err) {
       return res.status(400).send(err);
     };
-    res.render('index', { title: 'Product Wish List', products: products, subTitle: "Sorting by Name"});
+    res.render('index', { 
+      title: 'Product Wish List', 
+      products: products, 
+      subTitle: "Sorting by Name"});
   }).sort( { name: parseInt(req.params.num) } );
 });
 
@@ -69,7 +84,10 @@ router.get('/sortcategory/:num', function(req, res, next) {
     if (err) {
       return res.status(400).send(err);
     };
-    res.render('index', { title: 'Product Wish List', products: products, subTitle: "Sorting by Category"});
+    res.render('index', { 
+      title: 'Product Wish List', 
+      products: products, 
+      subTitle: "Sorting by Category"});
   }).sort( { category: parseInt(req.params.num) } );
 });
 
@@ -78,7 +96,10 @@ router.get('/sortdate/:num', function(req, res, next) {
     if (err) {
       return res.status(400).send(err);
     };
-    res.render('index', { title: 'Product Wish List', products: products, subTitle: "Sorting by Date Added"});
+    res.render('index', { 
+      title: 'Product Wish List', 
+      products: products, 
+      subTitle: "Sorting by Date Added"});
   }).sort( { addedAt: parseInt(req.params.num) } );
 });
 
