@@ -34,9 +34,9 @@ block content
     button.btn.btn-warning#categoryGo Go
   .form-group
     label(for='price') Filter by price
-    input#price.form-control(type="number", placeholder="Price")
-    button.btn.btn-success#greaterThan Greater Than
-    button.btn.btn-danger#lessThan Less Than
+    input#price.form-control(type="number", placeholder="Price", min="0.00")
+    button.btn.btn-success.priceGo#gt Greater Than
+    button.btn.btn-danger.priceGo#lt Less Than
   
   hr
   span Hold shift and click to reverse the sort order

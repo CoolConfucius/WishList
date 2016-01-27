@@ -35,6 +35,24 @@ router.get('/category/:category', function(req, res, next) {
   });
 });
 
+router.get('/gt/:price', function(req, res, next) {
+  Product.find({ price: { $gt: req.params.price} }, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { title: 'Product Wish List', products: products});
+  });
+});
+
+router.get('/lt/:price', function(req, res, next) {
+  Product.find({ price: { $lt: req.params.price} }, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { title: 'Product Wish List', products: products});
+  });
+});
+
 
 // Sorts: 
 router.get('/sortname/:num', function(req, res, next) {

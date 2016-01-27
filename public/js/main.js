@@ -7,6 +7,8 @@ function init() {
   $('#productList').on('click', 'tr', show);
   $('#nameGo').click(nameFilter); 
   $('#categoryGo').click(categoryFilter); 
+  $('.priceGo').click(priceFilter); 
+
   $('#sortName').click(sortName); 
 }
 
@@ -39,6 +41,14 @@ function categoryFilter(){
   var category = $('#category').val(); 
   $.get('/category/'+category, function(req, res, next){
     location.replace('/category/'+category);
+  })
+}
+
+function priceFilter(){
+  var price = $('#price').val(); 
+  var compare = $(this).attr('id');
+  $.get('/'+compare+'/'+price, function(req, res, next){
+    location.replace('/'+compare+'/'+price);
   })
 }
 
