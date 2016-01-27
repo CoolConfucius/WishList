@@ -11,6 +11,8 @@ function init() {
 
   $('.sort').click(sort); 
   $('#removeAll').click(removeAll);
+
+  $('.spade').click(test); 
 }
 
 function show(){
@@ -81,4 +83,21 @@ function removeAll(){
     alert('Error. Check console.');
     console.error("Error:", err);
   });;
+}
+
+
+
+
+// testing 
+function test(){
+  $.post('/test', {
+    
+  })
+  .success(function(data) {
+    location.replace('/');
+  })
+  .fail(function(err) {
+    alert('Error. Check console.');
+    console.error("Error:", err);
+  });
 }

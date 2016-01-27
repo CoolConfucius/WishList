@@ -4,7 +4,7 @@ block content
   .container
   h1= title
   h3= subTitle
-  a.btn.btn-primary(href='/products/addProduct') Add Product
+  a.btn.btn-primary.btn-lg(href='/products/addProduct') Add Product
   
   table.table.table-hover
     thead
@@ -22,6 +22,8 @@ block content
           td.price= '$'+parseFloat(product.price).toFixed(2)
   span Total: 
   span#total
+  hr
+  hr
   hr
   .row
     .form-group.col-sm-4.col-xs-8

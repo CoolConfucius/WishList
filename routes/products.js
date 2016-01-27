@@ -10,7 +10,7 @@ router.get('/addProduct', function(req, res, next) {
   res.render('addProduct', { title: 'Add Product' });
 });
 
-// get one product
+// get show page
 router.get('/:productId', function(req, res, next) {
   Product.findById(req.params.productId, function(err, product) {
     if (err) {
@@ -23,7 +23,6 @@ router.get('/:productId', function(req, res, next) {
 
 // create a new product
 router.post('/', function(req, res) {
-  console.log("reqbody", req.body);
   var product = new Product(req.body); 
   product.save(function(err, savedProduct) {
     res.status(err ? 400 : 200).send(err || savedProduct);
@@ -54,7 +53,7 @@ router.put('/:productId', function(req, res) {
   });
 });
 
-// remove all
+// remove all products
 router.delete('/', function(req, res) {
   Product.remove({}, function(err, product) {
     res.status(err ? 400 : 200).send(err || product);

@@ -4,15 +4,14 @@ var router = express.Router();
 var Product = require('../models/product');
 
 router.get('/', function(req, res, next) {
-  // console.log('req.query:', req.query);
   Product.find({}, function(err, products) {
-  // Product.find(req.query, function(err, products) {
     if (err) {
       return res.status(400).send(err);
     };
     res.render('index', { title: 'Product Wish List', products: products});
   });
 });
+
 
 // Filters: 
 router.get('/name/:name', function(req, res, next) {
@@ -27,7 +26,6 @@ router.get('/name/:name', function(req, res, next) {
       subTitle: "Showing name: "+req.params.name});
   });
 });
-
 
 router.get('/category/:category', function(req, res, next) {
   Product.find({ category: req.params.category }, function(err, products) {
@@ -66,7 +64,8 @@ router.get('/lt/:price', function(req, res, next) {
 });
 
 
-// Sorts: 
+
+// Sorting: 
 router.get('/sortname/:num', function(req, res, next) {
   Product.find({}, function(err, products) {
     if (err) {
@@ -114,6 +113,44 @@ router.get('/sortpurchase/:num', function(req, res, next) {
       subTitle: "Sorting by Date to Purchase by"});
   }).sort( { purchaseBy: parseInt(req.params.num) } );
 });
+
+
+
+
+
+// To help with testing: 
+router.post('/testing', function(req, res, next) {
+  Product.find({}, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { title: 'Product Wish List', products: products});
+  });
+});
+
+
+router.post('/test', function(req, res) {
+  console.log("reqbody", req.body);
+  var product = new Product({
+    name: "spade", 
+    description: "it's a spade", 
+    price: 100.00,
+    addedAt: Date.now(),
+    purchaseBy: new Date("October 13, 2014 11:13:00"), 
+    imageurl: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150",
+    category: "black"
+  }); 
+  product.save(function(err, savedProduct) {
+    res.status(err ? 400 : 200).send(err || savedProduct);
+  });
+});
+
+
+
+
+
+
+
 
 
 module.exports = router;
