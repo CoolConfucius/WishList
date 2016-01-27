@@ -7,6 +7,7 @@ function init() {
   $('#productList').on('click', 'tr', show);
   $('#nameGo').click(nameFilter); 
   $('#categoryGo').click(categoryFilter); 
+  $('#sortName').click(sortName); 
 }
 
 function show(){
@@ -26,6 +27,7 @@ function total(){
   $('#total').text('$'+sum.toFixed(2));
 }
 
+// Filters 
 function nameFilter(){
   var name = $('#name').val(); 
   $.get('/name/'+name, function(req, res, next){
@@ -39,3 +41,22 @@ function categoryFilter(){
     location.replace('/category/'+category);
   })
 }
+
+
+// Sorts
+function sortName(e){
+  var az = (e.shiftKey) ? "/sortname/-1" : "/sortname/1"
+  $.get(az, function(data) {
+    location.replace(az);
+  });
+}
+
+// function sortDate(e){
+//   var d = (e.shiftKey) ? "/todos/sort/r" : "/todos/sort/d"
+//   $.get(d, function(data) {
+//     showAll(); 
+//   });
+// }
+
+
+

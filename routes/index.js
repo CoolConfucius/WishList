@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
       return res.status(400).send(err);
     };
     res.render('index', { title: 'Product Wish List', products: products});
-  });
+  }).sort( { addedAt: 1 } );
 });
 
 // Filters: 
@@ -35,6 +35,16 @@ router.get('/category/:category', function(req, res, next) {
   });
 });
 
+
+// Sorts: 
+router.get('/sortname/:num', function(req, res, next) {
+  Product.find({}, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { title: 'Product Wish List', products: products});
+  }).sort( { name: parseInt(req.params.num) } );
+});
 
 
 module.exports = router;
