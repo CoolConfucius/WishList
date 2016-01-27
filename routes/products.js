@@ -9,15 +9,21 @@ var Product = require('../models/product');
 router.get('/', function(req, res, next) {
   console.log('req.query:', req.query);
   Product.find(req.query, function(err, products) {
-    res.status(err ? 400 : 200).send(err || products); 
-    res.render('index', { title: 'Product List', products: products})
+    res.status(err ? 400 : 200); if (err) {res.send(err)};
+    res.render('index', { title: 'Product List', products: products});
   });
+});
+
+// get add product form
+router.get('/addProduct', function(req, res, next) {
+  res.render('addProduct', { title: 'Add Product' });
 });
 
 // get one product
 router.get('/:productId', function(req, res, next) {
   Product.findById(req.params.productId, function(err, product) {
-    res.status(err ? 400 : 200).send(err || product); 
+    res.status(err ? 400 : 200); if (err) {res.send(err)};
+    res.render('showpage', {product: product, id: req.params.productId}); 
   });
 });
 
@@ -25,7 +31,7 @@ router.get('/:productId', function(req, res, next) {
 router.post('/', function(req, res) {
   var product = new Product(req.body); 
   product.save(function(err, savedProduct) {
-    res.status(err ? 400 : 200).send(err || savedProduct); 
+    res.status(err ? 400 : 200); if (err) {res.send(err)};
   });
 });
 
@@ -33,15 +39,15 @@ router.post('/', function(req, res) {
 router.delete('/:productId', function(req, res) {
   Product.findById(req.params.productId, function(err, product) {
     product.remove(function(err) {
-      res.status(err ? 400 : 200).send(err || null); 
+      res.status(err ? 400 : 200).send(err || product);
     });
   });
 });
 
-// toggle
-router.put('/:productId/toggle', function(req, res) {
+// editing a product
+router.put('/:productId', function(req, res) {
   Product.findById(req.params.productId, function(err, product) {   
-    product.isCompleted = !product.isCompleted; 
+    product = req.body; 
     product.save(function(err, savedProduct) {
       res.status(err ? 400 : 200).send(err || savedProduct); 
     });
