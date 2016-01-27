@@ -131,15 +131,7 @@ router.post('/testing', function(req, res, next) {
 
 router.post('/test', function(req, res) {
   console.log("reqbody", req.body);
-  var product = new Product({
-    name: "spade", 
-    description: "it's a spade", 
-    price: 100.00,
-    addedAt: Date.now(),
-    purchaseBy: new Date("October 13, 2014 11:13:00"), 
-    imageurl: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150",
-    category: "black"
-  }); 
+  var product = new Product(req.body); 
   product.save(function(err, savedProduct) {
     res.status(err ? 400 : 200).send(err || savedProduct);
   });

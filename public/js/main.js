@@ -12,7 +12,10 @@ function init() {
   $('.sort').click(sort); 
   $('#removeAll').click(removeAll);
 
-  $('.spade').click(test); 
+  $('.spade').click(spade); 
+  $('.heart').click(heart); 
+  $('.club').click(club); 
+  $('.diamond').click(diamond); 
 }
 
 function show(){
@@ -89,9 +92,72 @@ function removeAll(){
 
 
 // testing 
-function test(){
+function spade(){
   $.post('/test', {
-    
+    name: "spade", 
+    description: "it's a spade", 
+    price: 100.00,
+    addedAt: Date.now(),
+    purchaseBy: new Date("November 22, 2014 11:13:00"), 
+    imageurl: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150",
+    category: "dark"
+  })
+  .success(function(data) {
+    location.replace('/');
+  })
+  .fail(function(err) {
+    alert('Error. Check console.');
+    console.error("Error:", err);
+  });
+}
+
+function heart(){
+  $.post('/test', {
+    name: "heart", 
+    description: "it's a heart", 
+    price: 200.00,
+    addedAt: Date.now(),
+    purchaseBy: new Date("December 25, 2014 11:13:00"), 
+    imageurl: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150",
+    category: "flush"
+  })
+  .success(function(data) {
+    location.replace('/');
+  })
+  .fail(function(err) {
+    alert('Error. Check console.');
+    console.error("Error:", err);
+  });
+}
+
+function club(){
+  $.post('/test', {
+    name: "club", 
+    description: "it's a club", 
+    price: 0.01,
+    addedAt: Date.now(),
+    purchaseBy: new Date("October 20, 2014 11:13:00"), 
+    imageurl: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150",
+    category: "dark"
+  })
+  .success(function(data) {
+    location.replace('/');
+  })
+  .fail(function(err) {
+    alert('Error. Check console.');
+    console.error("Error:", err);
+  });
+}
+
+function diamond(){
+  $.post('/test', {
+    name: "diamond", 
+    description: "it's a diamond", 
+    price: 0.10,
+    addedAt: Date.now(),
+    purchaseBy: new Date("March 13, 2014 11:13:00"), 
+    imageurl: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150",
+    category: "flush"
   })
   .success(function(data) {
     location.replace('/');
