@@ -25,19 +25,20 @@ block content
   span Grand Total: 
   span#total
   hr
-  .form-group
-    label(for='name') Filter by name
-    input#name.form-control(type="text", placeholder="Name")
-    button.btn.btn-warning#nameGo Go
-  .form-group
-    label(for='category') Filter by category
-    input#category.form-control(type="text", placeholder="Category")
-    button.btn.btn-warning#categoryGo Go
-  .form-group
-    label(for='price') Filter by price
-    input#price.form-control(type="number", placeholder="Price", min="0.00")
-    button.btn.btn-success.priceGo#gt Greater Than
-    button.btn.btn-danger.priceGo#lt Less Than
+  .row
+    .form-group.col-sm-4.col-xs-8
+      label(for='name') Filter by name
+      input#name.form-control(type="text", placeholder="Name")
+      button.btn.btn-warning#nameGo Go
+    .form-group.col-sm-4.col-xs-8
+      label(for='category') Filter by category
+      input#category.form-control(type="text", placeholder="Category")
+      button.btn.btn-warning#categoryGo Go
+    .form-group.col-sm-4.col-xs-8
+      label(for='price') Filter by price
+      input#price.form-control(type="number", placeholder="Price", min="0.00")
+      button.btn.btn-success.priceGo#gt Greater Than
+      button.btn.btn-danger.priceGo#lt Less Than
   
   hr
   span Hold shift and click to reverse the sort order
