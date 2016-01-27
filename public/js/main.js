@@ -18,10 +18,8 @@ function show(){
 function total(){
   var sum = 0; 
   $(".price").each(function(index){
-    console.log( parseFloat( $(this).text() ));
-    var add = parseFloat($(this).text() );
+    var add = parseFloat($(this).text().replace(/\$/, "") );
     if (add) { sum += add; };
-    
   });
-  $('#total').text(sum);
+  $('#total').text('$'+sum.toFixed(2));
 }
