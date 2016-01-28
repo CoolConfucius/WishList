@@ -43,7 +43,7 @@ views/showpage.jade serves as the view of the show page of a specific product. T
 ## Frontend Javascript 
 Thanks to Jade, jQuery dom manipulation is sigficantly minimized. Populating data is handled server side. 
 
-In public/js, addProduct.js, main.js, and showpage.js mainly handles ajax calls. 
+Inside public/js: addProduct.js, main.js, and showpage.js mainly handle ajax calls. 
 
 ## Model and Schema
 models/product.js defines the schema and serves as the model of the product document in this full stack app. 
