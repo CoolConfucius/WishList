@@ -62,9 +62,9 @@ function priceFilter(){
 
 // Sorting
 function sort(){
-  var lasturl = $(location).attr('href').split('/')[4];
-  var num = (lasturl === "1") ? "/-1" : "/1";
   var str = $(this).attr('id').toLowerCase(); 
+  var currenturl = $(location).attr('href').split('/');
+  var num = (currenturl[3] === str && currenturl[4] === "1") ? "/-1" : "/1";
   var send = '/' + str + num; 
   $.get(send, function(data) {
     location.replace(send);
