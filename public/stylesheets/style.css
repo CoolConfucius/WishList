@@ -20,9 +20,16 @@ a {
   cursor: pointer;
 }
 
-.spade, .heart, .club, .diamond {
-  font-size: 24px; 
+th:hover, .test:hover {
+  background-color: #ddd;
 }
+
+.test {
+  font-size: 24px; 
+  cursor: pointer;
+  text-align: center;
+}
+
 
 .heart{
   color: red;
