@@ -131,16 +131,6 @@ router.get('/sortpurchase/:num', function(req, res, next) {
 
 
 // To help with testing: 
-router.post('/testing', function(req, res, next) {
-  Product.find({}, function(err, products) {
-    if (err) {
-      return res.status(400).send(err);
-    };
-    res.render('index', { title: 'Product Wish List', products: products});
-  });
-});
-
-
 router.post('/test', function(req, res) {
   console.log("reqbody", req.body);
   var product = new Product(req.body); 
