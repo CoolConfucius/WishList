@@ -23,8 +23,6 @@
 While in the index page, click on the spade, club, heart, or diamond to instantly add a product with already defined keys. 
 
 
-
-
 ### On Code
 Implemented using Mongo DB, Express generator, Bootstrap, Jade, and JQuery. 
 
