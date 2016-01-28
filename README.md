@@ -16,7 +16,7 @@
   - Filter by price, greater than and less than
   - Sort by name, category, date to purchase by, and date added 
   - Total changes along with sorting and filtering 
-  - Reverse the sort order by clicking the buttons while holding shift 
+  - Reverse the sort order by clicking same button or header again. 
   - Remove all items with just a button click 
 
 ### Testing Feature 
