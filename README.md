@@ -23,6 +23,10 @@
 While in the index page, click on the spade, club, heart, or diamond to instantly add a product with already defined keys. 
 
 
+### Heroku
+Now deployed on: 
+https://tranquil-lake-86813.herokuapp.com/
+
 ### On Code
 Implemented using Mongo DB, Express generator, Bootstrap, Jade, and JQuery. 
 
