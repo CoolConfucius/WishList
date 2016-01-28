@@ -4,27 +4,7 @@ block content
   .container
   h1= title
   h3= subTitle
-  a.btn.btn-primary.btn-lg(href='/products/addProduct') Add Product
   
-  table.table.table-hover
-    thead
-      tr
-        th Name
-        th Description
-        th Category
-        th Price
-    tbody#productList      
-      each product in products
-        tr(data-id=product._id)
-          td= product.name
-          td= product.description
-          td= product.category
-          td.price= '$'+parseFloat(product.price).toFixed(2)
-  span.total Total: 
-  span.total#total
-  hr
-  hr
-  hr
   .row
     .form-group.col-sm-4.col-xs-8
       label(for='name') Filter by name
@@ -40,19 +20,37 @@ block content
       button.btn.btn-success.priceGo#gt Greater Than
       button.btn.btn-danger.priceGo#lt Less Than
   
-  hr
-  span Hold shift and click to reverse the sort order
-  hr
-  .sortdiv.row
+  span.row Hold shift and click to reverse the sort order
+  .row
     .col-xs-2 Sort by:
     button.btn.btn-primary.sort#sortname name
+    button.btn.btn-info.sort#sortprice price
     button.btn.btn-warning.sort#sortcategory category
     button.btn.btn-success.sort#sortpurchase purchase by
     button.btn.btn-danger.sort#sortadded added at
+    a.col-xs-offset-1.btn.btn-success(href='/') Show All
 
+  
+  table.table.table-hover
+    thead
+      tr
+        th.sort#sortName Name
+        th Description
+        th.sort#sortCategory Category
+        th.sort#sortPrice Price
+    tbody#productList      
+      each product in products
+        tr(data-id=product._id)
+          td= product.name
+          td= product.description
+          td= product.category
+          td.price= '$'+parseFloat(product.price).toFixed(2)
+  span.total Total: 
+  span.total#total
   hr
-  a.btn.btn-success(href='/') Show All
-  button.btn.btn-danger#removeAll Remove All
+  a.btn.btn-primary.btn-lg(href='/products/addProduct') Add a Product
+  hr
+  button.btn.btn-danger#removeAll Remove All  
 
 block scripts
   script(src='/js/main.js')

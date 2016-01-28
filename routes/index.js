@@ -90,6 +90,18 @@ router.get('/sortcategory/:num', function(req, res, next) {
   }).sort( { category: parseInt(req.params.num) } );
 });
 
+router.get('/sortprice/:num', function(req, res, next) {
+  Product.find({}, function(err, products) {
+    if (err) {
+      return res.status(400).send(err);
+    };
+    res.render('index', { 
+      title: 'Product Wish List', 
+      products: products, 
+      subTitle: "Sorting by Price"});
+  }).sort( { price: parseInt(req.params.num) } );
+});
+
 router.get('/sortadded/:num', function(req, res, next) {
   Product.find({}, function(err, products) {
     if (err) {
