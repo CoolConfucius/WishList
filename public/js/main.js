@@ -119,7 +119,7 @@ function heart(){
     addedAt: Date.now(),
     purchaseBy: new Date("December 25, 2014 11:13:00"), 
     imageurl: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150",
-    category: "flush"
+    category: "blush"
   })
   .success(function(data) {
     location.replace('/');
@@ -157,7 +157,7 @@ function diamond(){
     addedAt: Date.now(),
     purchaseBy: new Date("March 13, 2014 11:13:00"), 
     imageurl: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150",
-    category: "flush"
+    category: "blush"
   })
   .success(function(data) {
     location.replace('/');
