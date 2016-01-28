@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var moment = require('moment');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/productlist');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/productlist');
 
 var app = express();
 
