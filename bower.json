@@ -1,0 +1,22 @@
+{
+  "name": "productlist",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Benjamin Huang <coolconfucius@yahoo.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/CoolConfucius/WishList",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "bootstrap": "^3.3.6"
+  }
+}
