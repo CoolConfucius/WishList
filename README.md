@@ -19,5 +19,32 @@
   - Reverse the sort order by clicking the buttons while holding shift 
   - Remove all items with just a button click 
 
-### Testing Features 
+### Testing Feature 
 While in the index page, click on the spade, club, heart, or diamond to instantly add a product with already defined keys. 
+
+
+
+
+### On Code
+Implemented using Mongo DB, Express generator, Bootstrap, Jade, and JQuery. 
+
+## Routes
+Handled by routes/index.js and routes/products.js . 
+
+routes/index.js is mainly responsible for fetching the complete product wish list and rendering it (views/index.jade).  It also handles the filtering and sorting. The bonus test feature is also handled here. 
+
+routes/products.js handles various crud operations and renderings. It renders the add product form and the showpage. It handles adding products, deleting products, updating products, and deleting all products. 
+
+## Views 
+views/index.jade serves as the view of the Product Wish List main page. The page mainly serves to present all products of the wish list, but can also filter and sorth. Rendered by and gets its products from routes/index.js. Uses public/js/main.js. 
+
+views/addProduct.jade serves as the view of the add product form. Rendered by routes/products.js. Uses public/js/addProduct.js. 
+
+views/showpage.jade serves as the view of the show page of a specific product. The page shows additional information of the selected product as well as provide an edit form used to update the product. Rendered by and gets its product details from routes/products.js. Uses public/js/showpage.js. 
+
+## Frontend Javascript 
+Thanks to Jade, jQuery dom manipulation is sigficantly minimized. Populating data is handled server side. 
+in public/js: addProduct.js, main.js, and showpage.js mainly handles ajax calls. 
+
+## Model and Schema
+models/product.js defines the schema and serves as the model of the product document in this full stack app. 

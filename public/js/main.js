@@ -2,6 +2,14 @@
 
 $(document).ready(init); 
 
+var sorted = {
+  name: false, 
+  price: false,
+  category: false, 
+  purchase: false,
+  added: false
+}
+
 function init() {
   total(); 
   $('#productList').on('click', 'tr', show);
@@ -61,8 +69,26 @@ function priceFilter(){
 
 // Sorting
 function sort(e){
-  var num = (e.shiftKey) ? "/-1" : "/1";
+  // var num = (e.shiftKey) ? "/-1" : "/1";
+  var num = "/1"; 
   var str = $(this).attr('id').toLowerCase(); 
+  switch(str) {
+    case 'sortname':
+      num = (sorted.name) ? "/-1" : "/1"; 
+      break;
+    case 'sortprice':
+      num = (sorted.price) ? "/-1" : "/1"; 
+      break;
+    case 'sortcategory':
+      num = (sorted.category) ? "/-1" : "/1"; 
+      break;
+    case 'sortpurchase':
+      num = (sorted.purchase) ? "/-1" : "/1"; 
+      break;
+    case 'sortadded':
+      num = (sorted.added) ? "/-1" : "/1"; 
+      break;
+  }
   var send = '/' + str + num; 
   $.get(send, function(data) {
     location.replace(send);

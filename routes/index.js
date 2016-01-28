@@ -130,21 +130,13 @@ router.get('/sortpurchase/:num', function(req, res, next) {
 
 
 
+
 // To help with testing: 
 router.post('/test', function(req, res) {
-  console.log("reqbody", req.body);
   var product = new Product(req.body); 
   product.save(function(err, savedProduct) {
     res.status(err ? 400 : 200).send(err || savedProduct);
   });
 });
-
-
-
-
-
-
-
-
 
 module.exports = router;
