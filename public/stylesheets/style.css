@@ -30,7 +30,6 @@ th:hover, .test:hover {
   text-align: center;
 }
 
-
 .heart{
   color: red;
 }
@@ -38,21 +37,17 @@ th:hover, .test:hover {
 .club{
   color: #ddd;
   text-shadow: 
-    1px 0px 4px black, 0px 1px 4px black, 
-    2px 1px 4px black, 1px 2px 4px black,
-    3px 2px 4px black, 2px 3px 4px black,    
-    -1px -0px 4px black, -0px -1px 4px black, 
-    -2px -1px 4px black, -1px -2px 4px black,
-    -3px -2px 4px black, -2px -3px 4px black
+    1px 0px 7px black, 0px 1px 7px black, 
+    2px 1px 7px black, 1px 2px 7px black,    
+    -1px -0px 7px black, -0px -1px 7px black, 
+    -2px -1px 7px black, -1px -2px 7px black
 }
 
 .diamond{
  color: #ddd;
   text-shadow: 
-    1px 0px 4px red, 0px 1px 4px red, 
-    2px 1px 4px red, 1px 2px 4px red,
-    3px 2px 4px red, 2px 3px 4px red,    
-    -1px -0px 4px red, -0px -1px 4px red, 
-    -2px -1px 4px red, -1px -2px 4px red,
-    -3px -2px 4px red, -2px -3px 4px red 
+    1px 0px 7px red, 0px 1px 7px red, 
+    2px 1px 7px red, 1px 2px 7px red,
+    -1px -0px 7px red, -0px -1px 7px red, 
+    -2px -1px 7px red, -1px -2px 7px red
 }
