@@ -4,6 +4,8 @@ $(document).ready(init);
 
 function init() {
   total(); 
+  console.log($(location).attr('href'), "< the location url");
+  console.log($(location).attr('href').split('/'), "< the location url");
   $('#productList').on('click', 'tr', show);
   $('#nameGo').click(nameFilter); 
   $('#categoryGo').click(categoryFilter); 
@@ -59,9 +61,12 @@ function priceFilter(){
 }
 
 
+
 // Sorting
 function sort(e){
-  var num = (e.shiftKey) ? "/-1" : "/1";
+  var lasturl = $(location).attr('href').split('/')[4];
+  // var num = (e.shiftKey) ? "/-1" : "/1";
+  var num = (lasturl === "1") ? "/-1" : "/1";
   var str = $(this).attr('id').toLowerCase(); 
   var send = '/' + str + num; 
   $.get(send, function(data) {
